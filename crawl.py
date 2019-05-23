@@ -49,5 +49,8 @@ for link in image:
 		download = imageurl[0]
 	except:
 		print("Failure in download. Contents: ", download)
-	print("Downloading",name)
-	urllib.request.urlretrieve(download, directory + name + extension)
+	try:
+		urllib.request.urlretrieve(download, directory + name + extension)
+		print("Downloading: ",name)
+	except:
+		print("Couldn't download " + name + ". Skipping...")
